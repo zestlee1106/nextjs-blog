@@ -1,13 +1,14 @@
 import Head from "next/head";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
-export async function getServerSideProps() {
-  return {
-    props: { time: new Date().toISOString() },
-  };
-}
+export default function CSR() {
+  const [time, setTime] = useState();
 
-export default function Home({ time }) {
+  useEffect(() => {
+    console.log("🤩🤩🤩 영우의 로그 client: ");
+    setTime(new Date().toISOString());
+  }, []);
   return (
     <div className="container">
       <Head>
@@ -17,21 +18,6 @@ export default function Home({ time }) {
 
       <main>
         <h1 className="title">{time}</h1>
-        <h1>
-          <Link href="/csr">
-            <a>CSR로</a>
-          </Link>
-        </h1>
-        <h1>
-          <Link href="/ssg">
-            <a>SSG 로</a>
-          </Link>
-        </h1>
-        <h1>
-          <Link href="/isr">
-            <a>ISR 로</a>
-          </Link>
-        </h1>
       </main>
 
       <footer>
