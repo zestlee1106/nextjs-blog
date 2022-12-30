@@ -1,1 +1,53 @@
-This is a starter template for [Learn Next.js](https://nextjs.org/learn).
+# Next 맛보기 프로젝트
+
+> 넥스트가 뭐길래 다들 넥스트를 사용하는 걸까..  
+> 한번 맛보자
+
+## 패키지 설치
+
+```sh
+yarn
+```
+
+## 개발 모드 실행
+
+```sh
+yarn dev
+```
+
+---
+
+## 프로젝트 구조
+
+### 1. public
+
+- 고정적인 파일들을 넣는 디렉토리이다.
+- vue 로 치면 `src/assets` 디렉토리라고 할 수 있다.
+- 루트로 접근이 가능하다
+
+### 2. package.json
+
+- 스크립트 명령어들을 볼 수 있다
+- vue 처럼 프로젝트 dependencies 등 기본 설정들을 볼 수 있다.
+
+---
+
+## SSR 이란?
+
+- 서버가 데이터를 가져와서 그린다
+
+### SSR 을 담당하는 함수
+
+`getServerSideProps`
+
+- 서버에서 props 를 가져와서 화면에 그려 줄 수 있다
+- Nuxt 로 치면 asyncData 같은 느낌인 듯
+
+## CSR 이란?
+
+- 클라이언트가 데이터를 가져와서 그린다
+
+### CSR 을 담당하는 함수
+
+- 따로 없음
+- React 에서 하는 방법으로 그대로 하면 된다
