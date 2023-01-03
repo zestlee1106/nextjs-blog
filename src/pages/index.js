@@ -1,10 +1,10 @@
-import Head from "next/head";
-import Link from "next/link";
+import Head from 'next/head'
+import Link from 'next/link'
 
 export async function getServerSideProps() {
   return {
     props: { time: new Date().toISOString() },
-  };
+  }
 }
 
 export default function Home({ time }) {
@@ -27,5 +27,5 @@ export default function Home({ time }) {
         </Link>
       </h1>
     </>
-  );
+  )
 }
