@@ -73,6 +73,14 @@ yarn dev
 - 정적인 페이지를 만들 때 쓴다.
 - 정적인 글만 있는 블로그를 쓸 때 쓴다!
 
+### SSG 의 두 가지 상황
+
+- Page 의 내용물이 외부 데이터에 의존적인 상황
+  - API 에 의존적인 상황
+  - getStaticProps 를 가지고 해결 가능
+- Page Paths 까지 외부 데이터에 의존적인 상황
+  - getStaticPaths 를 가지고 해결 가능
+
 ## ISR 이란?
 
 - (특정 주기로) 데이터를 가져와서 다시 그려둔다
@@ -80,7 +88,19 @@ yarn dev
 ### ISR 을 담당하는 함수
 
 - **getStaticProps** with revalidate
+- revalidate 에 넣은 값으로 초마다 data fetching 을 한다.
 
 ### 언제 쓸까?
 
 - 특정 주기로 데이터를 업데이트 해야 할 때 사용한다.
+
+---
+
+## Layouts
+
+- 여러 page 들의 공통 처리를 담당한다.
+- page 가 아닌 컴포넌트이기 때문에 Server side render 가 안 된다.
+
+### 여러개의 Layouts 를 활용하고 싶은 경우
+
+Page.getLayout 에 getLayout 함수를 제공하면 된다.
