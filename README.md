@@ -104,3 +104,17 @@ yarn dev
 ### 여러개의 Layouts 를 활용하고 싶은 경우
 
 Page.getLayout 에 getLayout 함수를 제공하면 된다.
+
+## Image
+
+- 최적화된 이미지 유틸
+
+---
+
+## Router
+
+- Next.js 의 Router 는 file-system 기반이다
+- pages/ 혹은 src/pages/ 기반으로 만들어진다
+  - 둘 다 있을 경우에는 뭐가 우선순위일까?
+  - pages 가 우선 순위이고, src 이내에 있는 pages 는 무시가 된다.
+- Nuxt.js 와 똑같다...
