@@ -118,3 +118,25 @@ Page.getLayout 에 getLayout 함수를 제공하면 된다.
   - 둘 다 있을 경우에는 뭐가 우선순위일까?
   - pages 가 우선 순위이고, src 이내에 있는 pages 는 무시가 된다.
 - Nuxt.js 와 똑같다...
+
+## slug
+
+- 파일 이름을 [] 로 묶어 주면 된다.
+- Nuxt.js 에서의 \_key 와 같다고 생각하면 된다.
+- `pages/category.[slug].js` => `/category/:slug`
+- 우선 순위는 명시해놓은 값이다.
+  - 예를 들어, `pages/[username]/info.js` 와 `pages/category/info.js` 가 있을 때,  
+    ~/category/info 로 접속하면 [username]/info.js 페이지가 아닌 category/info.js 페이지로 접근한다.
+- [...slug] 로 생성했을 경우, 무한으로 slug 를 만들 수 있다.
+
+### 추가 사항
+
+- 절대 경로를 사용하고 싶으면, `jsconfig.json` 파일에 아래처럼 하면 된다
+
+```json
+{
+  "compilerOptions": {
+    "baseUrl": [base url 경로]
+  }
+}
+```
