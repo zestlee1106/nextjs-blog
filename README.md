@@ -128,6 +128,35 @@ Page.getLayout 에 getLayout 함수를 제공하면 된다.
   - 예를 들어, `pages/[username]/info.js` 와 `pages/category/info.js` 가 있을 때,  
     ~/category/info 로 접속하면 [username]/info.js 페이지가 아닌 category/info.js 페이지로 접근한다.
 - [...slug] 로 생성했을 경우, 무한으로 slug 를 만들 수 있다.
+  - router.query 로 접근할 경우 해당 쿼리 값들이 배열로 넘어온다
+- dynamic 한 slug 를 보냈을 경우, useRouter 를 통해서 router.query 로 접근이 가능하다.
+  - Nuxt 에서는 router.params 로 접근이 가능했었던 데에 비해, 다른 것 같다.
+- query 에도 slug 가 있다면 어떻게 될까?
+  - page 안에 사용하는 [slug] 가 있다면, 요것이 우선시 된다.
+  - 예: [username]/index.js apple?username=test 일 경우, username 에 apple 이 들어간다.
+- query 에 같은 값이 두개가 들어온다면?
+  - 두개가 같이 붙어서 온다.
+  - 예: food=event&food=home 일 경우, router.query.food = eventhome
+- slug 페이지지만 index 페이지가 없을 때에도 slug 페이지를 보여 주고 싶다면, [slug] 에 대괄호를 한 쌍 더 붙여주면 된다. [[slug]].js
+
+## 페이지 이동
+
+- router.push API 를 이용하여 페이지 이동을 할 수 있다. (Nuxt 와 동일)
+
+## Shallow Routing
+
+- getServerSideProps / getStaticProps 등을 다시 실행시키지 않고,  
+  현재 상태를 잃지 않고 url 을 바꾸는 방법
+
+### url 을 바꾸는 3가지 방식
+
+- `location.replace('url')`: 로컬 state 유지 안 됨 (리렌더)
+- `router.push(url)`: 로컬 state 유지 / data fetching 은 일어남
+- `router.push(url, as, {shallow: true})`: 로컬 state 유지 / data fetching X
+  - 동일한 페이지 내에서 shallow 사용 시에만 현재 상태를 잃지 않고 라우팅 이동할 수가 있는 것이다.
+  - vue 에서는 당연하게 상태를 잃지 않게끔 해 주는데, Next 에서는 따로 옵션이 있는가 봉가...
+
+---
 
 ### 추가 사항
 
